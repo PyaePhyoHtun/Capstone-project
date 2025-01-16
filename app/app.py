@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hello, GitOpsi! We will use the time and date pull policy"
+    return "Hello, GitOpsi! We will now test it if it is acutally work"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
