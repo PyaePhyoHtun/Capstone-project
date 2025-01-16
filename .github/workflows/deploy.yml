@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main  # Trigger on changes to the main branch
-  #  paths
-   #   - 'app/**'  # Only trigger if changes are made to files in the `app` directory
+  paths:
+      - 'app/**'  # Only trigger if changes are made to files in the `app` directory
 
 jobs:
   deploy:
