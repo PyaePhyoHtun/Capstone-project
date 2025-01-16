@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: pyaephyo28/my-app:latest
+        image: pyaephyo28/my-app:<new-tag>
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
