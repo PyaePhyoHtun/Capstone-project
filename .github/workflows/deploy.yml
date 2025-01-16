@@ -56,16 +56,10 @@ jobs:
           git commit -m "Update image tag to ${{ env.TIMESTAMP }}"
           git push "https://${{ secrets.PAT }}@github.com/${{ github.repository }}.git" main
 
-      # Step 9: Install Flux CLI
-      - name: Install Flux CLI
-        run: |
-          curl -s https://fluxcd.io/install.sh | sudo bash
-          flux --version
-      
-      # Step 10: Reconcile FluxCD
+      # Step 9: Reconcile FluxCD
       - name: Reconcile FluxCD
         run: |
-          echo "${{ secrets.KUBECONFIG }}" > kubeconfig.yaml
+          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > kubeconfig.yaml
           export KUBECONFIG=kubeconfig.yaml
           flux reconcile kustomization flux-system
 
