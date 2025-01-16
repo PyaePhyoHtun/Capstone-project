@@ -10,6 +10,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allow write access to the repository
 
     steps:
       # Step 1: Check out the repository
