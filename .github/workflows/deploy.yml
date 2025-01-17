@@ -43,9 +43,9 @@ jobs:
         run: docker push pyaephyo28/my-app:${{ env.TIMESTAMP }}
 
       # Step 7: Update deployment.yaml with the new tag
-#      - name: Update deployment.yaml
-#        run: |
-#          sed -i "s|image: pyaephyo28/my-app:.*|image: pyaephyo28/my-app:${{ env.TIMESTAMP }}|" manifests/deployment.yaml
+      - name: Update deployment.yaml
+        run: |
+          sed -i "s|image: pyaephyo28/my-app:.*|image: pyaephyo28/my-app:${{ env.TIMESTAMP }}|" manifests/deployment.yaml
 
       # Step 8: Commit and push changes to Git
       - name: Commit and push changes
@@ -57,15 +57,15 @@ jobs:
           git push "https://${{ secrets.PAT }}@github.com/${{ github.repository }}.git" main
 
       # Step 9: Install Flux CLI and Reconcile
-      - name: Install Flux CLI
-        run: |
-          curl -s https://fluxcd.io/install.sh | sudo bash
-          flux --version
+#      - name: Install Flux CLI
+#        run: |
+#          curl -s https://fluxcd.io/install.sh | sudo bash
+#          flux --version
       
-      - name: Reconcile FluxCD
-        run: |
-          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > kubeconfig.yaml
-          export KUBECONFIG=kubeconfig.yaml
-          flux reconcile kustomization flux-system
+#      - name: Reconcile FluxCD
+#        run: |
+#          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > kubeconfig.yaml
+#          export KUBECONFIG=kubeconfig.yaml
+#          flux reconcile kustomization flux-system
       
 
