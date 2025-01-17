@@ -43,9 +43,9 @@ jobs:
         run: docker push pyaephyo28/my-app:${{ env.TIMESTAMP }}
 
       # Step 7: Update deployment.yaml with the new tag
-      - name: Update deployment.yaml
-        run: |
-          sed -i "s|image: pyaephyo28/my-app:.*|image: pyaephyo28/my-app:${{ env.TIMESTAMP }}|" manifests/deployment.yaml
+#      - name: Update deployment.yaml
+#        run: |
+#          sed -i "s|image: pyaephyo28/my-app:.*|image: pyaephyo28/my-app:${{ env.TIMESTAMP }}|" manifests/deployment.yaml
 
       # Step 8: Commit and push changes to Git
       - name: Commit and push changes
