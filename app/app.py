@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Try where is my problem"
+    return "Try without flux"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
